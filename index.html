@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- Directive by HTML5 UP | html5up.net | CCA 3.0 license -->
+<html>
+  <head>
+    <title>Team 01 | ECE 5 Line Following Robot</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <nav id="jump-nav" aria-label="Jump to a section">
+      <a href="#header" class="nav-brand">TEAM 01</a>
+      <div>
+        <a href="#build">Build</a>
+        <a href="#robot">Robot</a>
+        <a href="#pid">PID</a>
+        <a href="#results">Results</a>
+        <a href="#media">Media</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </nav>
+    <div id="header">
+      <span class="logo robot-logo" aria-label="Robot car logo">
+        <svg viewBox="0 0 120 86" aria-hidden="true">
+          <path d="M20 55h80l-7-25H68l-8-12-8 12H27z" />
+          <circle cx="34" cy="63" r="10" />
+          <circle cx="86" cy="63" r="10" />
+          <circle class="eye" cx="49" cy="42" r="4" />
+          <circle class="eye" cx="71" cy="42" r="4" />
+          <path class="line" d="M47 51h26M60 18V8M54 8h12" />
+        </svg>
+      </span>
+      <h1>Team 01</h1>
+      <p>
+        UC San Diego · ECE 5 · Final Project<br />Our autonomous line following
+        robot. Designed, assembled, tuned, and raced by<br />Chenchen Shao, Dale
+        Capewell, Eliana Shteinbok, and Ruchen Ye.
+      </p>
+    </div>
+    <div id="main">
+      <header class="major container medium">
+        <h2>Some text :P</h2>
+        <p>
+          This website documents our robot from early prototypes through
+          competition day.
+        </p>
+      </header>
+      <div class="box alt container reveal" id="build">
+        <section class="feature left">
+          <div class="image project-placeholder">
+            <span>photo</span>
+          </div>
+          <div class="content">
+            <h3>Planning &amp; prototyping</h3>
+            <p>
+              Could describe our original chassis idea and  the parts we tested and how
+              we chose the sensor and wheel placement. Could yap abt how it all came 
+              together idk. put pictures of challenge one 
+            </p>
+          </div>
+        </section>
+        <section class="feature right">
+          <div class="image project-placeholder">
+            <span>photo</span>
+          </div>
+          <div class="content">
+            <h3>Mechanical assembly</h3>
+            <p>
+              Could explain how the motors and wheels and battery pack and 
+              photoresistors and microcontroller were mounted. Put a picture of
+              challenge 2 submission
+            </p>
+          </div>
+        </section>
+        <section class="feature left">
+          <div class="image project-placeholder">
+            <span>photo</span>
+          </div>
+          <div class="content">
+            <h3>Electronics &amp; testing</h3>
+            <p>
+              Callibration steps and writing code things. maybe talk abt 
+              photoresistor circut callibrating. Could put a picture of some of the code
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="box container reveal" id="robot">
+        <header>
+          <h2>Meet the final robot</h2>
+          <p>Competition day build</p>
+        </header>
+        <div class="large-placeholder annotated-photo">
+          <span>Updated final robot photo here :D</span>
+        </div>
+        <div class="row feature-labels">
+          <div class="col-6 col-12-mobilep">
+            <h3>1. Sensor array</h3>
+            <p>Seven photoresistors detect the lines position.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>2. Drive system</h3>
+            <p>Independent left and right motors do the steering for the robot.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>3. Power</h3>
+            <p>The battery pack powers the controller and motors.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>4. Controller</h3>
+            <p>
+              The microcontroller reads sensors and applies PID corrections. Maybe IR or website controlled?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="box container reveal" id="pid">
+        <header>
+          <h2>PID control</h2>
+          <p>How our robot stayed centered and stable</p>
+        </header>
+        <section>
+          <p>
+            PID control is for correcting the robot based on how far it is
+            from the line. Proportional control reacts to the current error,
+            integral control corrects error that remains over time, and
+            derivative control reduces overshoot by reacting to fast changes. (Could add more info idk what tho)
+          </p>
+        </section>
+        <div class="pid-grid">
+          <div>
+            <b>P</b>
+            <h3>Proportional</h3>
+            <code>Kp = [value]</code>
+          </div>
+          <div>
+            <b>I</b>
+            <h3>Integral</h3>
+            <code>Ki = [value]</code>
+          </div>
+          <div>
+            <b>D</b>
+            <h3>Derivative</h3>
+            <code>Kd = [value]</code>
+          </div>
+        </div>
+        <section class="tuning-note">
+          <h3>How we tuned it</h3>
+          <p>
+            Why we choose the pid values. how we tested/adjusted them. 
+            how did we come up with a way to adjust them. like IR remote vs 
+            small knobs potentiometers vs through a website. 
+          </p>
+        </section>
+      </div>
+      <div class="box container dark-panel reveal">
+        <header>
+          <h2>Code modifications</h2>
+          <p>Show the changes that improved performance</p>
+        </header>
+        <pre>
+          <code> //Some code in here but filler code for now
+            void setup() {
+              // initialize digital pin LED_BUILTIN as an output.
+              pinMode(LED_BUILTIN, OUTPUT);
+            }
+
+            // the loop function runs over and over again forever
+            void loop() {
+              digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+              delay(1000);                      // wait for a second
+              digitalWrite(LED_BUILTIN, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+              delay(1000);                      // wait for a second
+            }</code>
+      </pre>
+      </div>
+      <div class="box container reveal" id="results">
+        <header>
+          <h2>Competition results</h2>
+          <p>Scores and rankings for each track</p>
+        </header>
+        <div class="results-grid">
+          <section>
+            <!--<span class="icon solid fa-flag-checkered"></span>-->
+            <div class="track-placeholder">
+              <span>race track photo</span>
+            </div>
+            <h3>Race</h3>
+            <strong>— seconds</strong>
+            <p>Distance: —<br />Rank: —</p>
+          </section>
+          <section>
+            <div class="track-placeholder">
+              <span>loop track photo</span>
+            </div>
+             <h3>Loop Track</h3>
+    <strong>— loops</strong>
+
+    <p>Rank: —</p>
+  </section>
+  <!-- Freestyle Track -->
+  <section>
+    <div class="track-placeholder">
+      <span>freestyle track photo</span>
+    </div>
+    <h3>Freestyle</h3>
+    <strong>— seconds</strong>
+    <p>
+      Distance: —<br />
+      Rank: —
+    </p>
+  </section>
+</div>
+      </div>
+      <div class="box container reveal" id="media">
+        <header>
+          <h2>Poster &amp; competition video</h2>
+          <p>Our project summary and robot video</p>
+        </header>
+        <div class="row media-row">
+          <div class="col-6 col-12-mobilep">
+            <div class="large-placeholder poster">
+              <span>poster photo</span>
+            </div>
+            <h3>Final poster</h3>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <div class="large-placeholder video">
+              <span class="icon solid fa-play"></span
+              ><small>cmpetition video link/thumnail</small>
+            </div>
+            <h3>Competition video</h3>
+            <a href="#" class="button small">Add video link</a>
+          </div>
+        </div>
+      </div>
+      <div class="box container reveal" id="reflection">
+        <header><h2>Improvements &amp; reflection</h2></header>
+        <p>
+          Some stuff we imroved / challenges. Lorem ipsum dolor sit amet, 
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          onsequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+          sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          With more time, we would Some stuff we imroved / challenges. Lorem ipsum dolor sit amet, 
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          onsequat. 
+        </p>
+      </div>
+      <footer class="major container medium">
+        <h3>Made together</h3>
+        <p>Chenchen Shao · Dale Capewell · Eliana Shteinbok · Ruchen Ye</p>
+        <div class="large-placeholder team-photo">
+          <span>team photo awwwwww</span>
+        </div>
+      </footer>
+    </div>
+    <div id="footer">
+      <div class="container medium">
+        <header class="major last"><h2>Team 01 · ECE 5</h2></header>
+        <p>Line Following Robot Final Project · UC San Diego</p>
+        <ul class="actions special">
+          <li><a href="#header" class="button">Back to top</a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Team 01.</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((item) => revealObserver.observe(item));
+    </script>
+  </body>
+</html>
