@@ -3034,11 +3034,8 @@ input[type="button"].small,
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
   position: absolute;
-  padding: 20px;
-  background-color: #f8f6f1;
 }
 
 .feature:before {
