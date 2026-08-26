@@ -3032,19 +3032,10 @@ input[type="button"].small,
 
 .feature .image img {
   display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   position: absolute;
-  inset: 0;
-
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 0;
-  min-height: 0;
-  max-width: 100%;
-
-  object-fit: contain !important;
-  object-position: center;
-  padding: 15px;
-  background-color: #f8f6f1;
 }
 
 .feature:before {
