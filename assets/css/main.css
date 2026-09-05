@@ -4149,4 +4149,460 @@ input[type="submit"],
   align-items: center;
 }
 
+/* ========================================================================== 
+   Team 01 final-page overrides
+   Keep this section at the very bottom so it wins over the template defaults.
+   ========================================================================== */
 
+/* More comfortable type sizing */
+body,
+input,
+select,
+textarea {
+  font-size: 12pt;
+  line-height: 1.7;
+}
+
+h2 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+}
+
+#header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+#header p {
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.65;
+}
+
+#main > header.major h2 {
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  letter-spacing: 0.055em;
+  line-height: 1.12;
+}
+
+#main > header.major p {
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+.box > header h2,
+#footer header.major.last h2 {
+  font-size: clamp(1.65rem, 3.2vw, 2.4rem);
+}
+
+.project-intro {
+  padding-bottom: 4.5em;
+  padding-top: 4.5em;
+}
+
+/* Final robot and labels */
+.robot-annotated {
+  background: #111;
+  border: 1px solid rgba(57, 79, 73, 0.22);
+  margin: 0 0 2.5em;
+  overflow: hidden;
+  position: relative;
+}
+
+.robot-annotated > img {
+  display: block;
+  opacity: 0.92;
+  width: 100%;
+}
+
+.robot-callout {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-size: 0.85rem;
+  font-weight: 700;
+  gap: 0.55em;
+  line-height: 1.25;
+  max-width: 13em;
+  position: absolute;
+  text-shadow: 0 2px 8px #000000;
+}
+
+.robot-callout b {
+  align-items: center;
+  background: var(--project-lime);
+  border: 3px solid rgba(16, 21, 20, 0.75);
+  border-radius: 50%;
+  color: var(--project-ink);
+  display: flex;
+  flex: 0 0 2.1em;
+  height: 2.1em;
+  justify-content: center;
+  text-shadow: none;
+}
+
+.robot-callout::after {
+  background: var(--project-lime);
+  content: "";
+  height: 2px;
+  position: absolute;
+  transform-origin: left center;
+}
+
+.callout-led {
+  bottom: 7%;
+  left: 4%;
+}
+
+.callout-led::after {
+  display: none;
+}
+
+.callout-pots {
+  right: 4%;
+  top: 8%;
+}
+
+.callout-pots::after {
+  display: none;
+}
+
+/* These two leaders use photo coordinates, not font-dependent lengths. */
+.corrected-arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1678 / 1566;
+  pointer-events: none;
+}
+
+.corrected-arrows > path {
+  fill: none;
+  stroke: var(--project-lime);
+  stroke-width: 3;
+}
+
+.corrected-arrows marker path {
+  fill: var(--project-lime);
+}
+
+.callout-chassis {
+  left: 4%;
+  top: 15%;
+}
+
+.callout-chassis::after {
+  left: 99%;
+  top: 1em;
+  transform: rotate(13deg);
+  width: 13em;
+}
+
+.callout-wheels {
+  bottom: 8%;
+  right: 4%;
+}
+
+.callout-wheels::after {
+  right: 96%;
+  top: 1em;
+  transform: rotate(-8deg);
+  width: 8em;
+}
+
+.callout-motors {
+  left: 3%;
+  top: 49%;
+}
+
+.callout-motors::after {
+  left: 98%;
+  top: 1em;
+  transform: rotate(8deg);
+  width: 9em;
+}
+
+.callout-esp {
+  right: 4%;
+  top: 47%;
+}
+
+.callout-esp::after {
+  right: 96%;
+  top: 1em;
+  transform: rotate(2deg);
+  width: 15em;
+}
+
+.callout-driver {
+  bottom: 19%;
+  right: 28%;
+}
+
+.callout-driver::after {
+  left: 1em;
+  top: -0.3em;
+  transform: rotate(-83deg);
+  width: 7em;
+}
+
+.robot-details {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.robot-details section {
+  border-left: 4px solid var(--project-lime);
+  padding: 0.35em 0 0.35em 1.4em;
+}
+
+.robot-details h3,
+.robot-details p {
+  margin-bottom: 0.8em;
+  text-align: left;
+}
+
+/* PID plots */
+.pid-grid > div p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.plot-grid {
+  display: grid;
+  gap: 1.4em;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2.5em;
+}
+
+.plot-grid figure {
+  background: #ffffff;
+  border: 1px solid rgba(57, 79, 73, 0.16);
+  margin: 0;
+  padding: 0.8em;
+}
+
+.plot-grid img {
+  display: block;
+  width: 100%;
+}
+
+.plot-grid figcaption {
+  color: #666b67;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  padding: 0.9em 0.35em 0.25em;
+}
+
+/* Code modifications */
+.code-showcase {
+  display: grid;
+  gap: 1.4em;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.code-showcase section {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(185, 217, 0, 0.22);
+  padding: 1.4em;
+}
+
+.code-showcase h3 {
+  color: var(--project-lime);
+  text-align: left;
+}
+
+.code-showcase pre {
+  font-size: 0.78rem;
+  margin-bottom: 1.2em;
+  padding: 1.1em;
+}
+
+.code-showcase p {
+  margin-bottom: 0;
+}
+
+/* Competition cards */
+.results-grid > section {
+  padding: 1.2em;
+}
+
+.track-photo {
+  aspect-ratio: 4 / 3;
+  display: block;
+  margin-bottom: 1.3em;
+  object-fit: cover;
+  width: 100%;
+}
+
+.results-grid > section:first-child .track-photo {
+  object-position: center 35%;
+}
+
+.result-badge {
+  background: var(--project-lime);
+  color: var(--project-ink);
+  display: inline-block;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1em;
+  padding: 0.35em 0.75em;
+  text-transform: uppercase;
+}
+
+.results-grid strong {
+  font-size: 1.1rem;
+}
+
+/* Poster and video */
+.media-grid {
+  align-items: start;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.media-grid figure {
+  margin: 0;
+}
+
+.media-grid figure img,
+.competition-video video {
+  border: 1px solid rgba(57, 79, 73, 0.18);
+  display: block;
+  width: 100%;
+}
+
+.media-grid figcaption {
+  color: #666b67;
+  font-size: 0.9rem;
+  padding-top: 0.7em;
+}
+
+.competition-video {
+  text-align: center;
+}
+
+.competition-video video {
+  background: #000000;
+  max-height: 34em;
+  object-fit: contain;
+}
+
+.competition-video h3 {
+  margin: 1em 0 0.7em;
+}
+
+/* Team image */
+.team-block {
+  padding-bottom: 7em;
+}
+
+.team-photo {
+  border: 1px solid rgba(57, 79, 73, 0.18);
+  display: block;
+  margin-top: 2em;
+  min-height: 0;
+  height: auto;
+  width: 100%;
+}
+
+/* Content must remain visible even if scripting is unavailable. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.original-recording {
+  margin: 1em 0 0;
+  font-size: 0.95rem;
+}
+
+.code-showcase > section,
+.media-grid > *,
+.plot-grid > * {
+  min-width: 0;
+}
+
+#jump-nav a {
+  font-size: 0.875rem;
+}
+
+.robot-callout {
+  font-size: 0.875rem;
+}
+
+a:focus-visible {
+  outline: 3px solid #65743a;
+  outline-offset: 4px;
+}
+
+/* Tablet and phone layouts */
+@media screen and (max-width: 980px) {
+  .robot-callout {
+    font-size: 0.75rem;
+  }
+
+  .robot-callout::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 12pt;
+  }
+
+  #main > header.major h2 {
+    font-size: clamp(1.75rem, 9vw, 2.45rem);
+  }
+
+  .robot-annotated {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .corrected-arrows {
+    display: none;
+  }
+
+  .robot-callout {
+    background: rgba(16, 21, 20, 0.96);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: none;
+    padding: 0.55em 0.8em;
+    position: static;
+    text-shadow: none;
+  }
+
+  .robot-details,
+  .plot-grid,
+  .code-showcase,
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plot-grid,
+  .code-showcase {
+    gap: 1em;
+  }
+
+  .competition-video video {
+    max-height: 30em;
+  }
+}
