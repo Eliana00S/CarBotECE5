@@ -1,584 +1,330 @@
+<!DOCTYPE html>
 <!-- Directive by HTML5 UP | html5up.net | CCA 3.0 license -->
-<!doctype html>
-<html lang="en">
+<html>
   <head>
+    <title>Team 01 | ECE 5 Line Following Robot</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Team 01's UC San Diego ECE 5 line-following robot: design, PID tuning, code, and competition results." />
-    <title>
-      Team 01 | ECE 5 Line-Following Robot
-    </title>
-    <link rel="stylesheet" href="main.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
-  <body>
-    <nav class="jump-nav" aria-label="Page sections">
-      <a class="brand" href="#top">
-        TEAM 01
-      </a>
-      <div class="nav-links">
-        <a href="#build">
-          Build
-        </a>
-        <a href="#robot">
-          Robot
-        </a>
-        <a href="#pid">
-          PID
-        </a>
-        <a href="#code">
-          Code
-        </a>
-        <a href="#results">
-          Results
-        </a>
-        <a href="#media">
-          Video
-        </a>
+  <body class="is-preload">
+    <nav id="jump-nav" aria-label="Jump to a section">
+      <a href="#header" class="nav-brand">TEAM 01</a>
+      <div>
+        <a href="#build">Build</a>
+        <a href="#robot">Robot</a>
+        <a href="#pid">PID</a>
+        <a href="#results">Results</a>
+        <a href="#media">Media</a>
+        <a href="#reflection">Reflection</a>
       </div>
     </nav>
-    <!-- Hero -->
-    <header class="hero" id="top">
-      <div class="hero-mark" aria-hidden="true">
-        01
-      </div>
-      <p class="eyebrow">
-        UC San Diego · ECE 5 · Fall 2026
-      </p>
-      <h1>
-        Line-following robot
-      </h1>
-      <p class="hero-copy">
-        Designed, assembled, tuned, and raced by Chenchen Shao, Dale Capewell, Eliana Shteinbok, and Ruchen Ye.
-      </p>
-      <div class="hero-stats" aria-label="Competition highlights">
-        <span>
-          <strong>
-            3rd
-          </strong>
-          Drag race
-        </span>
-        <span>
-          <strong>
-            27
-          </strong>
-          Loop laps
-        </span>
-        <span>
-          <strong>
-            3rd
-          </strong>
-          Frequency sweep
-        </span>
-      </div>
-    </header>
-    <main>
-      <!-- Build process -->
-      <section class="section build-section" id="build">
-        <div class="section-heading">
-          <p class="eyebrow">
-            01 · Process
-          </p>
-          <h2>
-            From prototype to race day
-          </h2>
-          <p>
-            We developed the electronics, control logic, and mechanical design together, testing each subsystem before combining everything into the final compact build.
-          </p>
-        </div>
-        <div class="process-grid">
-          <article>
-            <span>
-              01
-            </span>
-            <h3>
-              Prototype
-            </h3>
-            <p>
-              We arranged the photoresistors, LEDs, and potentiometers on breadboards, then checked that each input produced stable readings.
-            </p>
-          </article>
-          <article>
-            <span>
-              02
-            </span>
-            <h3>
-              Calibrate
-            </h3>
-            <p>
-              Each sensor was calibrated against the light and dark track surfaces so its raw reading could be mapped to a consistent range.
-            </p>
-          </article>
-          <article>
-            <span>
-              03
-            </span>
-            <h3>
-              Integrate
-            </h3>
-            <p>
-              We packaged the ESP32, motor driver, motors, controls, and wiring inside a custom 3D-printed chassis with a ventilated honeycomb shell.
-            </p>
-          </article>
-          <article>
-            <span>
-              04
-            </span>
-            <h3>
-              Tune
-            </h3>
-            <p>
-              On-track testing helped us balance responsiveness and stability for three very different competition courses.
-            </p>
-          </article>
-        </div>
-      </section>
-      <!-- Final robot and labeled components -->
-      <section class="section robot-section" id="robot">
-        <div class="section-heading light">
-          <p class="eyebrow">
-            02 · Final build
-          </p>
-          <h2>
-            Meet the robot
-          </h2>
-          <p>
-            Our competition-day build kept the controls accessible while protecting the electronics inside a lightweight printed shell.
-          </p>
-        </div>
-        <figure class="robot-figure">
-          <img src="assets/finalcar_build.png" alt="Team 01's final black line-following robot with large yellow wheels and blue LEDs" />
-          <div class="callout c-led">
-            <b>
-              1
-            </b>
-            <span>
-              LED array
-              <br>
-              <small>
-                lights the track for consistent readings
-              </small>
-            </span>
-          </div>
-          <div class="callout c-pots">
-            <b>
-              2
-            </b>
-            <span>
-              5 potentiometers
-              <br>
-              <small>
-                fast physical tuning controls
-              </small>
-            </span>
-          </div>
-          <div class="callout c-chassis">
-            <b>
-              3
-            </b>
-            <span>
-              Custom chassis
-              <br>
-              <small>
-                3D-printed honeycomb shell
-              </small>
-            </span>
-          </div>
-          <div class="callout c-wheel">
-            <b>
-              4
-            </b>
-            <span>
-              Drive wheels
-              <br>
-              <small>
-                traction and differential steering
-              </small>
-            </span>
-          </div>
-          <div class="callout c-motor">
-            <b>
-              5
-            </b>
-            <span>
-              DC motors
-              <br>
-              <small>
-                inside the side housings
-              </small>
-            </span>
-          </div>
-          <div class="callout c-esp">
-            <b>
-              6
-            </b>
-            <span>
-              ESP32 inside
-              <br>
-              <small>
-                reads sensors and runs PID
-              </small>
-            </span>
-          </div>
-          <div class="callout c-driver">
-            <b>
-              7
-            </b>
-            <span>
-              Motor driver inside
-              <br>
-              <small>
-                converts commands into wheel power
-              </small>
-            </span>
-          </div>
-        </figure>
-        <div class="sensor-explainer">
-          <div>
-            <p class="eyebrow">
-              How the sensors work
-            </p>
-            <h3>
-              Light becomes a steering error
-            </h3>
-          </div>
-          <p>
-            The front photoresistor array measures reflected light across the track. After calibration, the code compares the readings, estimates where the dark line sits relative to the robot's center, and produces an error value. The PID controller turns that error into different left- and right-motor speeds, continuously steering the robot back toward the line.
-          </p>
-        </div>
-      </section>
-      <!-- PID control and tuning graphs -->
-      <section class="section" id="pid">
-        <div class="section-heading">
-          <p class="eyebrow">
-            03 · Control
-          </p>
-          <h2>
-            PID tuning, seen in the data
-          </h2>
-          <p>
-            We adjusted speed and control gains through physical potentiometers, then compared the requested turn with the measured line error. The goal was quick correction without unstable oscillation.
-          </p>
-        </div>
-        <div class="pid-cards">
-          <article>
-            <strong>
-              P
-            </strong>
-            <h3>
-              Proportional
-            </h3>
-            <p>
-              Responds to the current distance from the center line. Too low felt slow; too high caused side-to-side hunting.
-            </p>
-          </article>
-          <article>
-            <strong>
-              I
-            </strong>
-            <h3>
-              Integral
-            </h3>
-            <p>
-              Accumulates persistent error. We limited the accumulated value to prevent integrator wind-up.
-            </p>
-          </article>
-          <article>
-            <strong>
-              D
-            </strong>
-            <h3>
-              Derivative
-            </h3>
-            <p>
-              Responds to rapid error changes. It reduced overshoot, but noisy sensors could also create sharp corrections.
-            </p>
-          </article>
-        </div>
-        <div class="plot-grid">
-          <figure>
-            <img src="assets/pid_figure_1.png" alt="Early PID telemetry plot showing turn command and line error over time" />
-            <figcaption>
-              <b>
-                Baseline run.
-              </b>
-              The turn command follows the changing error, showing how aggressively the robot corrected.
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pid_t2.png" alt="PID test plot with dense turn and error changes" />
-            <figcaption>
-              <b>
-                High-activity test.
-              </b>
-              Dense switching showed that the controller was reacting, but also revealed oscillation and sensor noise.
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pid_sine_sweep.png" alt="PID sine sweep telemetry plot showing error changes over time" />
-            <figcaption>
-              <b>
-                Sweep response.
-              </b>
-              Long steady sections and repeated transitions helped us compare behavior as the track direction changed.
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pid_abnormal_peak.png" alt="PID plot containing a large abnormal turn-command peak" />
-            <figcaption>
-              <b>
-                Abnormal peak.
-              </b>
-              The spike showed why derivative response, sensor noise, and physical speed limits had to be considered together.
-            </figcaption>
-          </figure>
-        </div>
-        <div class="tuning-story">
-          <h3>
-            How we tuned it
-          </h3>
-          <ol>
-            <li>
-              Calibrate every photoresistor on both the light floor and dark line.
-            </li>
-            <li>
-              Increase proportional response until tracking is firm, then back off when oscillation becomes excessive.
-            </li>
-            <li>
-              Add only enough derivative control to calm overshoot without amplifying noisy readings.
-            </li>
-            <li>
-              Keep integral action limited, test each course again, and adjust speed for its physical demands.
-            </li>
-          </ol>
-        </div>
-      </section>
-      <!-- Code modifications -->
-      <section class="section code-section" id="code">
-        <div class="section-heading light">
-          <p class="eyebrow">
-            04 · Implementation
-          </p>
-          <h2>
-            What changed in our control system
-          </h2>
-          <p>
-            The attached C++ files do not contain Bluetooth code, so the live graphing is shown as a separate test tool rather than part of the onboard firmware.
-          </p>
-        </div>
-        <div class="code-grid">
-          <article>
-            <p class="code-label">
-              Weighted sensor position
-            </p>
-            <pre><code>float numerator =
-              LDR[left] * left +
-              LDR[center] * center +
-              LDR[right] * right;
-            
-            error = numerator / denominator
-                  - totalPhotoResistors / 2;</code></pre>
-            <p>
-              Nearby sensor strengths contribute to a smoother position estimate instead of reducing the line to only left, center, or right.
-            </p>
-          </article>
-          <article>
-            <p class="code-label">
-              PID protection
-            </p>
-            <pre><code>Turn = error * kP
-                 + sumerror * kI
-                 + (error - lasterror) * kD;
-            
-            if (sumerror &gt; 5) sumerror = 5;
-            else if (sumerror &lt; -5) sumerror = -5;
-            
-            if (error == 0) sumerror = 0;</code></pre>
-            <p>
-              The integral value is bounded and reset at center, limiting wind-up that could keep steering after the robot recovered.
-            </p>
-          </article>
-          <article>
-            <p class="code-label">
-              Differential steering
-            </p>
-            <pre><code>if (Turn &lt; 0) {
-              M1P = -Turn;
-              M2P = Turn;
-            } else if (Turn &gt; 0) {
-              M1P = -Turn;
-              M2P = Turn;
-            }</code></pre>
-            <p>
-              The signed turn correction changes the two motor commands in opposite directions, steering without a separate mechanical steering system.
-            </p>
-          </article>
-          <article>
-            <p class="code-label">
-              Bluetooth graphing experiment
-            </p>
-            <pre><code>lError.append(float(
-              rec_data.split("Error:")[1].split()[0]))
-            lTurns.append(float(
-              rec_data.split("Turn:")[1].split()[0]))
-            
-            line1.set_data(time_domain, lTurns)
-            line2.set_data(time_domain, lError)</code></pre>
-            <p>
-              Our Python tool listened for ESP32 BLE notifications and plotted turn and error live. It supported tuning analysis, although BLE notification code is not present in the attached firmware.
-            </p>
-          </article>
-        </div>
-      </section>
-      <!-- Competition tracks and results -->
-      <section class="section" id="results">
-        <div class="section-heading">
-          <p class="eyebrow">
-            05 · Competition
-          </p>
-          <h2>
-            Three tracks, three challenges
-          </h2>
-          <p>
-            Each event emphasized a different balance of speed, stability, and tight line tracking.
-          </p>
-        </div>
-        <div class="results-grid">
-          <article>
-            <img src="assets/frequency_sweep_track.png" alt="Frequency sweep freestyle competition track" />
-            <div class="result-copy">
-              <p class="rank">
-                3rd place
-              </p>
-              <h3>
-                Frequency sweep
-              </h3>
-              <p>
-                <strong>
-                  Distance: 12
-                </strong>
-              </p>
-              <p>
-                The freestyle course demanded fast steering changes as the line's frequency increased.
-              </p>
-            </div>
-          </article>
-          <article>
-            <img src="assets/dragrace_track.png" alt="Long drag race competition track" />
-            <div class="result-copy">
-              <p class="rank">
-                3rd place
-              </p>
-              <h3>
-                Drag race
-              </h3>
-              <p>
-                <strong>
-                  Podium finish
-                </strong>
-              </p>
-              <p>
-                The long, gentle path rewarded high speed while still requiring enough correction to stay centered.
-              </p>
-            </div>
-          </article>
-          <article>
-            <img src="assets/loop_track.png" alt="Circular loop competition track" />
-            <div class="result-copy">
-              <p class="rank">
-                5th place
-              </p>
-              <h3>
-                Loop track
-              </h3>
-              <p>
-                <strong>
-                  27 loops
-                </strong>
-              </p>
-              <p>
-                Repeated turning tested stability, motor balance, and the controller's ability to avoid drifting outward.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <!-- Poster and competition videos -->
-      <section class="section media-section" id="media">
-        <div class="section-heading light">
-          <p class="eyebrow">
-            06 · Project video
-          </p>
-          <h2>
-            Poster & competition video
-          </h2>
-        </div>
-        <div class="media-grid">
-          <figure>
-            <a href="assets/poster.png" target="_blank" rel="noopener">
-              <img src="assets/poster.png" alt="Team 01 ECE 5 line-following robot final poster" />
-            </a>
-            <figcaption>
-              Final project poster
-            </figcaption>
-          </figure>
-          <div class="video-card">
-            <video controls playsinline preload="metadata" poster="assets/dragrace_track.png">
-              <source src="assets/racevideo.mp4" type="video/mp4" />
-              Your browser does not support embedded video.
-            </video>
-            <div class="video-actions">
-              <a class="button" href="assets/racevideo.mp4" target="_blank">
-                Video link
-              </a>
-              <a class="button secondary" href="assets/IMG_3104.MOV" target="_blank">
-                Drag race link
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Reflection -->
-      <section class="section reflection-section" id="reflection">
-        <div class="section-heading">
-          <p class="eyebrow">
-            07 · Reflection
-          </p>
-          <h2>
-            What we would improve
-          </h2>
-        </div>
-        <div class="reflection-copy">
-          <p>
-            With the limited amount of time provided in the class, we did the best we could to turn an ambitious concept into a working competition robot. We learned that control ideas cannot be separated from the physical system carrying them out.
-          </p>
-          <p>
-            For future projects, we would consider the limitations of our equipment much earlier. Our motors, photoresistors, and ESP32 could not always respond as powerfully or consistently as the ideas we were trying to implement required. Earlier testing of torque, minimum usable motor speed, sensor response, noise, and processing limits would help us choose a design that matches the hardware and leave more time for reliable tuning.
-          </p>
-        </div>
-      </section>
-      <!-- Team photo -->
-      <section class="team-section" aria-labelledby="team-title">
-        <div>
-          <p class="eyebrow">
-            Team 01
-          </p>
-          <h2 id="team-title">
-            Built together
-          </h2>
-          <p>
-            Chenchen Shao · Dale Capewell · Eliana Shteinbok · Ruchen Ye
-          </p>
-        </div>
-        <img src="assets/team_photo.png" alt="Team 01 together on competition day" />
-      </section>
-    </main>
-    <footer>
+    <div id="header">
+      <span class="logo robot-logo" aria-label="Robot car logo">
+        <svg viewBox="0 0 120 86" aria-hidden="true">
+          <path d="M20 55h80l-7-25H68l-8-12-8 12H27z" />
+          <circle cx="34" cy="63" r="10" />
+          <circle cx="86" cy="63" r="10" />
+          <circle class="eye" cx="49" cy="42" r="4" />
+          <circle class="eye" cx="71" cy="42" r="4" />
+          <path class="line" d="M47 51h26M60 18V8M54 8h12" />
+        </svg>
+      </span>
+      <h1>Team 01</h1>
       <p>
-        Team 01 · ECE 5 · UC San Diego
+        UC San Diego · ECE 5 · Final Project<br />Our autonomous line following
+        robot. Designed, assembled, tuned, and raced by<br />Chenchen Shao, Dale
+        Capewell, Eliana Shteinbok, and Ruchen Ye.
       </p>
-      <a href="#top">
-        Back to top ↑
-      </a>
-    </footer>
+    </div>
+    <div id="main">
+      <header class="major container medium">
+        <h2>LINE FOLLOWING ROBOT</h2>
+        <p>
+          This website documents our robot from early prototypes through
+          competition day.
+        </p>
+      </header>
+      <div class="box alt container reveal" id="build">
+        <section class="feature left">
+          <div class="image">
+          <img
+            src="images/planning-prototype2.png"
+            alt="Photoresistor circuit prototype"
+          />
+        </div>
+          <div class="content">
+            <h3>Planning &amp; prototyping</h3>
+            <p>
+              We started off with arranging the photoresistors and the poterntiometers
+              on some breadboards for the prototype. Combining them to give us input from the
+              photoresistors as well as give us the ability to change the PID values. 
+            </p>
+          </div>
+        </section>
+        <section class="feature right">
+          <div class="image">
+            <img
+              src="images/mechanical-assembly2.png"
+              alt="Mechanical assembly of our line-following robot"
+            />
+          </div>
+          <div class="content">
+            <h3>Mechanical assembly</h3>
+            <p>
+              Early on in the proccess we desided to make the robot more compact so that
+              it would be able to have dexterity and freedome of movement in the form of having
+              a small turning radius. 
+            </p>
+          </div>
+        </section>
+        <section class="feature left">
+          <div class="image">
+              <video class="electronics-video" autoplay muted loop playsinline>
+                <source src="images/electronics-testing.mp4" type="video/mp4" />
+              </video>
+            </div>
+          <div class="content">
+            <h3>Electronics &amp; testing</h3>
+            <p>
+              We then proceeded to callibrate our prototype making sure that we were able to 
+              have it reliably follow a line by tuning the PID and reading the photoresistors.
+            </p>
+          </div>
+        </section>
+        <section class="feature right">
+          <div class="image">
+            <img
+              src="images/chassis.png"
+              alt="Mechanical assembly of our line-following robot"
+            />
+          </div>
+          <div class="content">
+            <h3>Chassis Design</h3>
+            <p>
+              With OnShape we were able to create a chassis design that would keep our elements 
+              compact, stable, and while being lightweight. We made the decision to add a homeycomb 
+              pattern to the roof to reduce print time and weight. 
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="box container reveal" id="robot">
+        <header>
+          <h2>Meet the final robot</h2>
+          <p>Competition day build</p>
+        </header>
+        <div class="large-placeholder annotated-photo">
+          <span>Updated final robot photo here :D</span>
+        </div>
+        <div class="row feature-labels">
+          <div class="col-6 col-12-mobilep">
+            <h3>1. Sensor array</h3>
+            <p>Seven photoresistors detect the lines position.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>2. Drive system</h3>
+            <p>Independent left and right motors do the steering for the robot.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>3. Power</h3>
+            <p>The battery pack powers the controller and motors.</p>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <h3>4. Controller</h3>
+            <p>
+              The microcontroller reads sensors and applies PID corrections. Maybe IR or website controlled?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="box container reveal" id="pid">
+        <header>
+          <h2>PID control</h2>
+          <p>How our robot stayed centered and stable</p>
+        </header>
+        <section>
+          <p>
+            PID control is for correcting the robot based on how far it is
+            from the line. Proportional control reacts to the current error,
+            integral control corrects error that remains over time, and
+            derivative control reduces overshoot by reacting to fast changes. (Could add more info idk what tho)
+          </p>
+        </section>
+        <div class="pid-grid">
+          <div>
+            <b>P</b>
+            <h3>Proportional</h3>
+            <code>Kp = [value]</code>
+          </div>
+          <div>
+            <b>I</b>
+            <h3>Integral</h3>
+            <code>Ki = [value]</code>
+          </div>
+          <div>
+            <b>D</b>
+            <h3>Derivative</h3>
+            <code>Kd = [value]</code>
+          </div>
+        </div>
+        <section class="tuning-note">
+          <h3>How we tuned it</h3>
+          <p>
+            Why we choose the pid values. how we tested/adjusted them. 
+            how did we come up with a way to adjust them. like IR remote vs 
+            small knobs potentiometers vs through a website. 
+          </p>
+        </section>
+      </div>
+      <div class="box container dark-panel reveal">
+        <header>
+          <h2>Code modifications</h2>
+          <p>Show the changes that improved performance</p>
+        </header>
+        <pre>
+          <code> //Some code in here but filler code for now
+            void setup() {
+              // initialize digital pin LED_BUILTIN as an output.
+              pinMode(LED_BUILTIN, OUTPUT);
+            }
+
+            // the loop function runs over and over again forever
+            void loop() {
+              digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+              delay(1000);                      // wait for a second
+              digitalWrite(LED_BUILTIN, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+              delay(1000);                      // wait for a second
+            }</code>
+      </pre>
+      </div>
+      <div class="box container reveal" id="results">
+        <header>
+          <h2>Competition results</h2>
+          <p>Scores and rankings for each track</p>
+        </header>
+        <div class="results-grid">
+          <section>
+            <!--<span class="icon solid fa-flag-checkered"></span>-->
+            <div class="track-placeholder">
+              <span>race track photo</span>
+            </div>
+            <h3>Race</h3>
+            <strong>— seconds</strong>
+            <p>Distance: —<br />Rank: —</p>
+          </section>
+          <section>
+            <div class="track-placeholder">
+              <span>loop track photo</span>
+            </div>
+             <h3>Loop Track</h3>
+    <strong>— loops</strong>
+
+    <p>Rank: —</p>
+  </section>
+  <!-- Freestyle Track -->
+  <section>
+    <div class="track-placeholder">
+      <span>freestyle track photo</span>
+    </div>
+    <h3>Freestyle</h3>
+    <strong>— seconds</strong>
+    <p>
+      Distance: —<br />
+      Rank: —
+    </p>
+  </section>
+</div>
+      </div>
+      <div class="box container reveal" id="media">
+        <header>
+          <h2>Poster &amp; competition video</h2>
+          <p>Our project summary and robot video</p>
+        </header>
+        <div class="row media-row">
+          <div class="col-6 col-12-mobilep">
+            <div class="large-placeholder poster">
+              <span>poster photo</span>
+            </div>
+            <h3>Final poster</h3>
+          </div>
+          <div class="col-6 col-12-mobilep">
+            <div class="large-placeholder video">
+              <span class="icon solid fa-play"></span
+              ><small>cmpetition video link/thumnail</small>
+            </div>
+            <h3>Competition video</h3>
+            <a href="#" class="button small">Add video link</a>
+          </div>
+        </div>
+      </div>
+      <div class="box container reveal" id="reflection">
+        <header><h2>Improvements &amp; reflection</h2></header>
+        <p>
+          Some stuff we imroved / challenges. Lorem ipsum dolor sit amet, 
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          onsequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+          sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          With more time, we would Some stuff we imroved / challenges. Lorem ipsum dolor sit amet, 
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          onsequat. 
+        </p>
+      </div>
+      <footer class="major container medium">
+        <h3>Made together</h3>
+        <p>Chenchen Shao · Dale Capewell · Eliana Shteinbok · Ruchen Ye</p>
+        <div class="large-placeholder team-photo">
+          <span>team photo awwwwww</span>
+        </div>
+      </footer>
+    </div>
+    <div id="footer">
+      <div class="container medium">
+        <header class="major last"><h2>Team 01 · ECE 5</h2></header>
+        <p>Line Following Robot Final Project · UC San Diego</p>
+        <ul class="actions special">
+          <li><a href="#header" class="button">Back to top</a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Team 01.</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((item) => revealObserver.observe(item));
+    </script>
   </body>
 </html>
+
+
+
