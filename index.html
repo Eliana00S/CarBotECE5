@@ -187,8 +187,10 @@
           <section>
             <h3>How the Sensors Work</h3>
             <p>
-              The front photoresistor array measures reflected light across
-              the track. Blue LEDs provide more consistent illumination. After
+              The front photoresistors measure the black line on the track. The 
+              white LEDs provide more consistent illumination. We also have a light 
+              shield covering them from ambient light so the photoresistors should 
+              be unaffected by outside light. After
               calibration, the code compares the readings and estimates where
               the dark line is relative to the robot's center.
             </p>
@@ -240,7 +242,8 @@
         <section class="tuning-note">
           <h3>How We Tuned It</h3>
           <p>
-            We first calibrated each photoresistor. We increased proportional
+            We first calibrated each photoresistor to it's own values since 
+            each one was slightly different from the other. We increased proportional
             control until the robot tracked firmly, then reduced it when the
             robot began oscillating. We added a smaller derivative response to
             reduce overshoot and kept the integral term limited to prevent
@@ -308,7 +311,7 @@
 
         <div class="code-showcase">
           <section>
-            <h3>Weighted Sensor Position</h3>
+            <h3>Sensor Position</h3>
             <pre><code>float numerator =
   LDR[leftHighestPR] * leftHighestPR +
   LDR[highestPResistor] * highestPResistor +
@@ -386,7 +389,7 @@ line2.set_data(time_domain, lError)</code></pre>
             />
             <span class="result-badge">3rd place</span>
             <h3>Frequency Sweep</h3>
-            <strong>Distance: 12</strong>
+            <strong>Distance: 12m </strong>
             <p>
               The changing line frequency demanded increasingly fast steering
               corrections.
@@ -403,7 +406,7 @@ line2.set_data(time_domain, lError)</code></pre>
             <h3>Drag Race</h3>
             <strong>Podium finish</strong>
             <p>
-              The long path rewarded speed while still requiring stable line
+              The long path required speed while still needing stable line
               tracking.
             </p>
           </section>
@@ -418,7 +421,7 @@ line2.set_data(time_domain, lError)</code></pre>
             <h3>Loop Track</h3>
             <strong>27 loops</strong>
             <p>
-              Repeated turning tested controller stability and motor balance.
+              Repeated loop tested how well the robot can maintain the track and not spin out.
             </p>
           </section>
         </div>
@@ -477,7 +480,7 @@ line2.set_data(time_domain, lError)</code></pre>
         </header>
         <p>
           With the limited amount of time provided in the class, we did the
-          best we could to turn an ambitious concept into a working competition
+          best we could to turn an the concept into a working competition
           robot. We learned that control ideas cannot be separated from the
           physical system carrying them out.
         </p>
